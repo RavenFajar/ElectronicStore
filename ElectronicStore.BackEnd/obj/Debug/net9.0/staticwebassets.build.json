@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "InKFkv1hcc99xk5w9g8SVEdmR1SrLjEKdguLfIiikkQ=",
+  "Source": "ElectronicStore.BackEnd",
+  "BasePath": "_content/ElectronicStore.BackEnd",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
