@@ -1,20 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
-// 1) Registrasi services SEBELUM Build
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddDbContext<ApplicationtDBContext>(options =>
+builder.Services.AddDbContext<ApplicationtDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// 3) Pipeline
+builder.Services.AddAutoMapper(typeof(Program));
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();

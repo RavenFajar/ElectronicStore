@@ -1,9 +1,9 @@
 using ElectronicStore.BackEnd.Entities;
 using Microsoft.EntityFrameworkCore;
-public sealed class ApplicationtDBContext : DbContext
+public sealed class ApplicationtDbContext : DbContext
 {
-    public ApplicationtDBContext(
-        DbContextOptions<ApplicationtDBContext> options) // ← WAJIB: generic sesuai nama konteks
+    public ApplicationtDbContext(
+        DbContextOptions<ApplicationtDbContext> options) 
         : base(options)
     { }
     public DbSet<Items> Items { get; set; }
