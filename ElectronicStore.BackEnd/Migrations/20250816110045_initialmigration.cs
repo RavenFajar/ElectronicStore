@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ElectronicStore.BackEnd.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class initialmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,11 +15,11 @@ namespace ElectronicStore.BackEnd.Migrations
                 name: "Invoices",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    InvoiceDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    LabourPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    GrandPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    InvoiceDate = table.Column<DateTimeOffset>(type: "TEXT", nullable: false),
+                    LabourPrice = table.Column<int>(type: "INTEGER", nullable: false),
+                    GrandPrice = table.Column<long>(type: "INTEGER", nullable: false),
+                    RowVersion = table.Column<byte[]>(type: "BLOB", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -30,13 +30,13 @@ namespace ElectronicStore.BackEnd.Migrations
                 name: "InvoiceDetails",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    InvoiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Discount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    RowVersion = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    InvoiceId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    ItemId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Quantity = table.Column<int>(type: "INTEGER", nullable: false),
+                    UnitPrice = table.Column<int>(type: "INTEGER", nullable: false),
+                    Discount = table.Column<int>(type: "INTEGER", nullable: false),
+                    RowVersion = table.Column<byte[]>(type: "BLOB", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -53,17 +53,17 @@ namespace ElectronicStore.BackEnd.Migrations
                 name: "Items",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ItemCode = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Length = table.Column<int>(type: "int", nullable: false),
-                    Width = table.Column<int>(type: "int", nullable: false),
-                    Height = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true),
-                    InvoiceDetailsId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    ItemCode = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Length = table.Column<double>(type: "REAL", nullable: false),
+                    Width = table.Column<double>(type: "REAL", nullable: false),
+                    Height = table.Column<double>(type: "REAL", nullable: false),
+                    Price = table.Column<long>(type: "INTEGER", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    Picture = table.Column<string>(type: "TEXT", nullable: false),
+                    RowVersion = table.Column<byte[]>(type: "BLOB", nullable: true),
+                    InvoiceDetailsId = table.Column<Guid>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -86,20 +86,9 @@ namespace ElectronicStore.BackEnd.Migrations
                 column: "ItemId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Invoices_InvoiceDate",
-                table: "Invoices",
-                column: "InvoiceDate");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Items_InvoiceDetailsId",
                 table: "Items",
                 column: "InvoiceDetailsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Items_ItemCode",
-                table: "Items",
-                column: "ItemCode",
-                unique: true);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_InvoiceDetails_Items_ItemId",
@@ -107,7 +96,7 @@ namespace ElectronicStore.BackEnd.Migrations
                 column: "ItemId",
                 principalTable: "Items",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />

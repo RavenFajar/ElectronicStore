@@ -1,6 +1,8 @@
-namespace ElectronicStore.BackEnd.Models;
+using ElectronicStore.BackEnd.Entities;
 
-public sealed class InvoiceDetails
+namespace ElectronicStore.BackEnd.Models.Dto;
+
+public sealed class UpdateInvoiceDetailsDto
 {
     public Guid Id { get; set; }
     public Guid InvoiceId { get; set; }
