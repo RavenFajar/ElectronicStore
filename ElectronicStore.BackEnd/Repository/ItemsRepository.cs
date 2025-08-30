@@ -7,10 +7,10 @@ namespace ElectronicStore.BackEnd.Repository;
 
 interface IItemsRepository
 {
-    Task<List<Items>> GetAllItems();
-    Task<Items> GetItemById(Guid id);
-    Task<Items> AddItem(Items item);
-    Task<bool> DeleteItem(Guid id);
+    Task<List<Items>> GetAllItemsAsync();
+    Task<Items> GetItemByIdAsync(Guid id);
+    Task<Items> AddItemAsync(Items item);
+    Task<bool> DeleteItemAsync(Guid id);
     Task<Items?> UpdateItemAsync(Items updatedItem);
 }
 public class ItemsRepository : IItemsRepository
@@ -22,26 +22,26 @@ public class ItemsRepository : IItemsRepository
         _db = dbContext;
     }
 
-    public async Task<List<Items>> GetAllItems()
+    public async Task<List<Items>> GetAllItemsAsync()
     {
         return await _db.Items.Where(x => !x.IsDelete).ToListAsync();
     }
-    public async Task<Items> GetItemById(Guid id)
+    public async Task<Items> GetItemByIdAsync(Guid id)
     {
         var result = await _db.Items.Where(x => !x.IsDelete && x.Id == id).FirstOrDefaultAsync();
         if (result == null) return null!;
         return result;
     }
-    public async Task<Items> AddItem(Items item)
+    public async Task<Items> AddItemAsync(Items item)
     {
         var entry = await _db.Items.AddAsync(item);
         await _db.SaveChangesAsync();
         return entry.Entity;
     }
-    public async Task<bool> DeleteItem(Guid id)
+    public async Task<bool> DeleteItemAsync(Guid id)
     {
         var item = await _db.Items.FindAsync(id);
-        if (item is null) return false!;
+        if (item is null) return false;
         item.IsDelete = true;
         _db.SaveChanges();
         return true;

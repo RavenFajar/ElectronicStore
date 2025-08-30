@@ -6,7 +6,6 @@ public sealed class Invoice
     public DateTimeOffset InvoiceDate { get; set; }
     public int LabourPrice { get; set; }
     public Int64 GrandPrice { get; set; }
-    public List<InvoiceDetails> InvoiceDetails { get; set; } = new();
-    public byte[]? RowVersion { get; set; }
-
+    public bool IsDelete { get; set; }
+    public required List<InvoiceDetails> InvoiceDetails { get; set; }
 }

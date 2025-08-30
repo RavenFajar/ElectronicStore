@@ -11,9 +11,9 @@ namespace ElectronicStore.BackEnd.Controllers;
 [ApiController]
 public class ItemsController : ControllerBase
 {
-    private readonly ApplicationtDBContext dBContext;
+    private readonly ApplicationtDbContext dBContext;
 
-    public ItemsController(ApplicationtDBContext dBContext)
+    public ItemsController(ApplicationtDbContext dBContext)
     {
         this.dBContext = dBContext;
     }
@@ -24,7 +24,7 @@ public class ItemsController : ControllerBase
         return Ok(allEmployees);
     }
     [HttpPost]
-    public IActionResult AddItem(AddItemDto AddItem)
+    public IActionResult AddItem(CreateItemRequest AddItem)
     {
 
         var addItem = new Items()
@@ -59,7 +59,7 @@ public class ItemsController : ControllerBase
     }
     [HttpPut]
     [Route("{id:Guid}")]
-    public IActionResult UpdateItem(Guid id, UpdateItemDto updateItemDto)
+    public IActionResult UpdateItem(Guid id, ItemDto updateItemDto)
     {
 
         var item = dBContext.Items.Find(id);

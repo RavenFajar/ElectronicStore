@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ElectronicStore.BackEnd.Migrations
 {
-    [DbContext(typeof(ApplicationtDBContext))]
+    [DbContext(typeof(ApplicationtDbContext))]
     [Migration("20250816110045_initialmigration")]
-    partial class initialmigration
+    partial class initialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

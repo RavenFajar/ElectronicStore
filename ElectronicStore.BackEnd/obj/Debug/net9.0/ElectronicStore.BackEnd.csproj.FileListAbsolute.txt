@@ -14,9 +14,13 @@ C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.B
 C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\ElectronicStore.BackEnd.runtimeconfig.json
 C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\ElectronicStore.BackEnd.dll
 C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\ElectronicStore.BackEnd.pdb
+C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\AutoMapper.dll
+C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\Azure.Core.dll
 C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\Azure.Identity.dll
 C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\Humanizer.dll
+C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\Mapster.dll
+C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\Mapster.Core.dll
 C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Raven Fajar\Documents\PersonalProject\ElectronicStore\ElectronicStore.BackEnd\bin\Debug\net9.0\Microsoft.Build.Locator.dll
