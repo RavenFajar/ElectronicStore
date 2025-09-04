@@ -13,7 +13,7 @@ public class Items
     public required double Height { get; set; }
     public required Int64 Price { get; set; }
     public bool IsDiscount { get; set; }
-    public double Discount { get; set; }
+    public double Discount { get; set; } = 0;
     public required string Description { get; set; }
     public required string Picture { get; set; }
     public bool IsDelete { get; set; }

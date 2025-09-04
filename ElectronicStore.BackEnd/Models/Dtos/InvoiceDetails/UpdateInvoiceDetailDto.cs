@@ -2,7 +2,7 @@ using ElectronicStore.BackEnd.Entities;
 
 namespace ElectronicStore.BackEnd.Models.Dto;
 
-public sealed class UpdateInvoiceDetailsDto
+public sealed record class UpdateInvoiceDetailsDto
 {
     public Guid Id { get; set; }
     public Guid InvoiceId { get; set; }

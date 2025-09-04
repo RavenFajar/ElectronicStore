@@ -19,10 +19,10 @@ public class InvoiceDetailsRepository : IInvoiceDetails
     {
         _db = db;
     }
-    public async Task<List<Entities.InvoiceDetails>> GetAllInvoiceDetailsAsync()
+    public async Task<List<InvoiceDetails>> GetAllInvoiceDetailsAsync()
     {
         var invoiceDetails = await _db.InvoiceDetails.Where(x => !x.IsDelete).ToListAsync();
-        return invoiceDetails;
+        return invoiceDetails.ToList();
     }
     public async Task<InvoiceDetails> GetInvoiceDetailByIdAsync(Guid id)
     {
