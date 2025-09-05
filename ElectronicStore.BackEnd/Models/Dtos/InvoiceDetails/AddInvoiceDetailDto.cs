@@ -1,5 +1,3 @@
-using ElectronicStore.BackEnd.Entities;
-
 namespace ElectronicStore.BackEnd.Models.Dto;
 
 public sealed record class AddInvoiceDetailsDto

@@ -8,7 +8,7 @@ public interface IInvoiceDetails
     Task<List<Entities.InvoiceDetails>> GetAllInvoiceDetailsAsync();
     Task<InvoiceDetails> GetInvoiceDetailByIdAsync(Guid id);
     Task<InvoiceDetails> AddInvoiceDetailAsync(InvoiceDetails invoiceDetail);
-    Task<bool> RemoveInvoiceDetailAsync(Guid id);
+    Task<bool> DeleteInvoiceDetailAsync(Guid id);
     Task<InvoiceDetails> UpdateInvoiceDetailAsync(InvoiceDetails invoiceDetails);
 }
 public class InvoiceDetailsRepository : IInvoiceDetails
@@ -21,12 +21,12 @@ public class InvoiceDetailsRepository : IInvoiceDetails
     }
     public async Task<List<InvoiceDetails>> GetAllInvoiceDetailsAsync()
     {
-        var invoiceDetails = await _db.InvoiceDetails.Where(x => !x.IsDelete).ToListAsync();
+        var invoiceDetails = await _db.InvoiceDetails.Where(x => !x.IsDeleted).ToListAsync();
         return invoiceDetails.ToList();
     }
     public async Task<InvoiceDetails> GetInvoiceDetailByIdAsync(Guid id)
     {
-        var invoiceDetail = await _db.InvoiceDetails.Where(x => !x.IsDelete).FirstOrDefaultAsync(x => x.InvoiceId == id);
+        var invoiceDetail = await _db.InvoiceDetails.Where(x => !x.IsDeleted).FirstOrDefaultAsync(x => x.InvoiceId == id);
         if (invoiceDetail is not null)
         {
             return invoiceDetail;
@@ -39,11 +39,11 @@ public class InvoiceDetailsRepository : IInvoiceDetails
         await _db.SaveChangesAsync();
         return entry.Entity;
     }
-    public async Task<bool> RemoveInvoiceDetailAsync(Guid id)
+    public async Task<bool> DeleteInvoiceDetailAsync(Guid id)
     {
         var invoiceDetail = await _db.InvoiceDetails.FindAsync(id);
         if (invoiceDetail is null) return false;
-        invoiceDetail.IsDelete = true;
+        invoiceDetail.IsDeleted = true;
         _db.SaveChanges();
         return true;
     }

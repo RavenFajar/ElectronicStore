@@ -5,7 +5,7 @@ using SQLitePCL;
 
 namespace ElectronicStore.BackEnd.Services;
 
-public interface IItemServices
+public interface IItemsServices
 {
     Task<IEnumerable<Items>> GetItemsAsync();
     Task<Items> GetItemByIdAsync(Guid id);
@@ -13,7 +13,7 @@ public interface IItemServices
     Task<bool> DeleteItemAsync(Guid id);
     Task<Items> UpdateItemAsync(UpdateItemDto updateItem);
 }
-public class ItemsServices : IItemServices
+public class ItemsServices : IItemsServices
 {
     private ItemsRepository _itemRepository;
     public ItemsServices(ItemsRepository itemsRepository)

@@ -1,11 +1,11 @@
 namespace ElectronicStore.BackEnd.Entities;
 
-public sealed class InvoiceDetails
+public class InvoiceDetails
 {
-    public Guid Id { get; set; }
-    public Guid InvoiceId { get; set; }
-    public Guid ItemId { get; set; }
-    public int Quantity { get; set; }
-    public int Price { get; set; }
-    public bool IsDelete { get; set; } 
+    public required Guid Id { get; set; }
+    public required Guid InvoiceId { get; set; }
+    public required Guid ItemId { get; set; }
+    public required int Quantity { get; set; }
+    public required int Price { get; set; }
+    public required bool IsDeleted { get; set; } 
 }
